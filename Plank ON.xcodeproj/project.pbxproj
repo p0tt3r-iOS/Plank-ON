@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */; };
 		BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */; };
-		BCAFFBD025F9E97F005B52E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCF25F9E97F005B52E1 /* ViewController.swift */; };
+		BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCF25F9E97F005B52E1 /* MainViewController.swift */; };
 		BCAFFBD325F9E97F005B52E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBD125F9E97F005B52E1 /* Main.storyboard */; };
 		BCAFFBD525F9E981005B52E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBD425F9E981005B52E1 /* Assets.xcassets */; };
 		BCAFFBD825F9E981005B52E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBD625F9E981005B52E1 /* LaunchScreen.storyboard */; };
+		BCAFFBE525F9F563005B52E1 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBE425F9F563005B52E1 /* ChoiceViewController.swift */; };
+		BCAFFBE825F9F86C005B52E1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */; };
+		BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BCAFFBC825F9E97F005B52E1 /* Plank ON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plank ON.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BCAFFBCF25F9E97F005B52E1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BCAFFBCF25F9E97F005B52E1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BCAFFBD225F9E97F005B52E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCAFFBD425F9E981005B52E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCAFFBD725F9E981005B52E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCAFFBD925F9E981005B52E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCAFFBE425F9F563005B52E1 /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
+		BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,24 @@
 			children = (
 				BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */,
 				BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */,
-				BCAFFBCF25F9E97F005B52E1 /* ViewController.swift */,
+				BCAFFBEE25F9F903005B52E1 /* Controller */,
 				BCAFFBD125F9E97F005B52E1 /* Main.storyboard */,
 				BCAFFBD425F9E981005B52E1 /* Assets.xcassets */,
 				BCAFFBD625F9E981005B52E1 /* LaunchScreen.storyboard */,
 				BCAFFBD925F9E981005B52E1 /* Info.plist */,
 			);
 			path = "Plank ON";
+			sourceTree = "<group>";
+		};
+		BCAFFBEE25F9F903005B52E1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCAFFBCF25F9E97F005B52E1 /* MainViewController.swift */,
+				BCAFFBE425F9F563005B52E1 /* ChoiceViewController.swift */,
+				BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */,
+				BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +154,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAFFBD025F9E97F005B52E1 /* ViewController.swift in Sources */,
+				BCAFFBE825F9F86C005B52E1 /* SettingViewController.swift in Sources */,
+				BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */,
 				BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */,
 				BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */,
+				BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */,
+				BCAFFBE525F9F563005B52E1 /* ChoiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
