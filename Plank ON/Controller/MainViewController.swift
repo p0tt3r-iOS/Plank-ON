@@ -16,11 +16,17 @@ class MainViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.reloadData()
-        
-        
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "나의 플랭크"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+    }
 }
 
 extension MainViewController: UITableViewDataSource {

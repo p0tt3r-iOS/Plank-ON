@@ -10,9 +10,14 @@ import UIKit
 class ChoiceViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
-    let selections = SelectionData().selections
-    
+
+    let choices = [
+        Choice(imageName: "Beginner", grade: "초급"),
+        Choice(imageName: "Intermediate", grade: "중급"),
+        Choice(imageName: "Advanced", grade: "상급"),
+        Choice(imageName: "Custom", grade: "커스텀")
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +26,7 @@ class ChoiceViewController: UIViewController {
         tableView.delegate = self
         tableView.reloadData()
         
-        tableView.register(UINib(nibName: "SelectionCell", bundle: nil), forCellReuseIdentifier: "SelectionCell")
+        tableView.register(UINib(nibName: "ChoiceCell", bundle: nil), forCellReuseIdentifier: "ChoiceCell")
         
     }
 }
@@ -30,15 +35,15 @@ class ChoiceViewController: UIViewController {
 
 extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selections.count
+        return choices.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SelectionCell", for: indexPath) as! SelectionCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChoiceCell", for: indexPath) as! ChoiceCell
         
-        cell.gradeImageView.image = UIImage(named: selections[indexPath.row].imageName)
-        cell.gradeLabel.text = selections[indexPath.row].grade
+        cell.gradeImageView.image = UIImage(named: choices[indexPath.row].imageName)
+        cell.gradeLabel.text = choices[indexPath.row].grade
         
         return cell
     }
@@ -46,7 +51,14 @@ extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let cell = tableView.cellForRow(at: indexPath) as! ChoiceCell
+        Plan.shared.grade = cell.gradeLabel.text
+        
         self.performSegue(withIdentifier: "ChoiceToSet", sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height / 5
     }
 }
 

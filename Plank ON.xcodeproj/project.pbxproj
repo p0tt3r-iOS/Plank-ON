@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC40D67C26242D1B006FCC7F /* PlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC40D67A26242D1B006FCC7F /* PlanCollectionViewCell.swift */; };
+		BC40D67D26242D1B006FCC7F /* PlanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC40D67B26242D1B006FCC7F /* PlanCollectionViewCell.xib */; };
+		BC95F6C6262442F200D90682 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F6C5262442F200D90682 /* Plan.swift */; };
 		BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */; };
 		BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */; };
 		BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCF25F9E97F005B52E1 /* MainViewController.swift */; };
@@ -16,13 +19,15 @@
 		BCAFFBE525F9F563005B52E1 /* ChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBE425F9F563005B52E1 /* ChoiceViewController.swift */; };
 		BCAFFBE825F9F86C005B52E1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */; };
 		BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */; };
-		BCAFFBF525FA016C005B52E1 /* Selection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF425FA016C005B52E1 /* Selection.swift */; };
-		BCAFFBF925FA029A005B52E1 /* SelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF725FA029A005B52E1 /* SelectionCell.swift */; };
-		BCAFFBFA25FA029A005B52E1 /* SelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBF825FA029A005B52E1 /* SelectionCell.xib */; };
-		BCAFFBFE25FA1E27005B52E1 /* SelectionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBFD25FA1E27005B52E1 /* SelectionData.swift */; };
+		BCAFFBF525FA016C005B52E1 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF425FA016C005B52E1 /* Choice.swift */; };
+		BCAFFBF925FA029A005B52E1 /* ChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF725FA029A005B52E1 /* ChoiceCell.swift */; };
+		BCAFFBFA25FA029A005B52E1 /* ChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBF825FA029A005B52E1 /* ChoiceCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC40D67A26242D1B006FCC7F /* PlanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCollectionViewCell.swift; sourceTree = "<group>"; };
+		BC40D67B26242D1B006FCC7F /* PlanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanCollectionViewCell.xib; sourceTree = "<group>"; };
+		BC95F6C5262442F200D90682 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		BCAFFBC825F9E97F005B52E1 /* Plank ON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plank ON.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,10 +39,9 @@
 		BCAFFBE425F9F563005B52E1 /* ChoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceViewController.swift; sourceTree = "<group>"; };
 		BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		BCAFFBF425FA016C005B52E1 /* Selection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selection.swift; sourceTree = "<group>"; };
-		BCAFFBF725FA029A005B52E1 /* SelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCell.swift; sourceTree = "<group>"; };
-		BCAFFBF825FA029A005B52E1 /* SelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectionCell.xib; sourceTree = "<group>"; };
-		BCAFFBFD25FA1E27005B52E1 /* SelectionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionData.swift; sourceTree = "<group>"; };
+		BCAFFBF425FA016C005B52E1 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
+		BCAFFBF725FA029A005B52E1 /* ChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCell.swift; sourceTree = "<group>"; };
+		BCAFFBF825FA029A005B52E1 /* ChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				BCAFFBD125F9E97F005B52E1 /* Main.storyboard */,
-				BCAFFBF725FA029A005B52E1 /* SelectionCell.swift */,
-				BCAFFBF825FA029A005B52E1 /* SelectionCell.xib */,
+				BCAFFBF725FA029A005B52E1 /* ChoiceCell.swift */,
+				BCAFFBF825FA029A005B52E1 /* ChoiceCell.xib */,
+				BC40D67A26242D1B006FCC7F /* PlanCollectionViewCell.swift */,
+				BC40D67B26242D1B006FCC7F /* PlanCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,8 +112,8 @@
 		BCAFFBF225F9FEF7005B52E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				BCAFFBF425FA016C005B52E1 /* Selection.swift */,
-				BCAFFBFD25FA1E27005B52E1 /* SelectionData.swift */,
+				BCAFFBF425FA016C005B52E1 /* Choice.swift */,
+				BC95F6C5262442F200D90682 /* Plan.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,10 +175,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAFFBFA25FA029A005B52E1 /* SelectionCell.xib in Resources */,
+				BCAFFBFA25FA029A005B52E1 /* ChoiceCell.xib in Resources */,
 				BCAFFBD825F9E981005B52E1 /* LaunchScreen.storyboard in Resources */,
 				BCAFFBD525F9E981005B52E1 /* Assets.xcassets in Resources */,
 				BCAFFBD325F9E97F005B52E1 /* Main.storyboard in Resources */,
+				BC40D67D26242D1B006FCC7F /* PlanCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,14 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAFFBF525FA016C005B52E1 /* Selection.swift in Sources */,
+				BC40D67C26242D1B006FCC7F /* PlanCollectionViewCell.swift in Sources */,
+				BCAFFBF525FA016C005B52E1 /* Choice.swift in Sources */,
 				BCAFFBE825F9F86C005B52E1 /* SettingViewController.swift in Sources */,
 				BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */,
+				BC95F6C6262442F200D90682 /* Plan.swift in Sources */,
 				BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */,
-				BCAFFBF925FA029A005B52E1 /* SelectionCell.swift in Sources */,
+				BCAFFBF925FA029A005B52E1 /* ChoiceCell.swift in Sources */,
 				BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */,
 				BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */,
-				BCAFFBFE25FA1E27005B52E1 /* SelectionData.swift in Sources */,
 				BCAFFBE525F9F563005B52E1 /* ChoiceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +349,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UL264WB4Z5;
 				INFOPLIST_FILE = "Plank ON/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,7 +357,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.P0tt3r.Plank-ON";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -360,6 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UL264WB4Z5;
 				INFOPLIST_FILE = "Plank ON/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -367,7 +377,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.P0tt3r.Plank-ON";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
