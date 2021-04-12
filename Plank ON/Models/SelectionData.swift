@@ -9,9 +9,9 @@ import Foundation
 
 struct SelectionData {
     let selections = [
-        Selection(imageName: "triangle", grade: "Beginner"),
-        Selection(imageName: "app", grade: "Intermediate"),
-        Selection(imageName: "hexagon", grade: "Advanced"),
-        Selection(imageName: "circle", grade: "Custom")
+        Selection(imageName: "Beginner", grade: "초급"),
+        Selection(imageName: "Intermediate", grade: "중급"),
+        Selection(imageName: "Advanced", grade: "상급"),
+        Selection(imageName: "Custom", grade: "커스텀")
     ]
 }

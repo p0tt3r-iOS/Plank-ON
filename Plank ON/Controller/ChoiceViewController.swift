@@ -18,6 +18,7 @@ class ChoiceViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.reloadData()
         
         tableView.register(UINib(nibName: "SelectionCell", bundle: nil), forCellReuseIdentifier: "SelectionCell")
@@ -25,20 +26,27 @@ class ChoiceViewController: UIViewController {
     }
 }
 
+// MARK: - UITableView DataSource, Delegate
 
-extension ChoiceViewController: UITableViewDataSource {
+extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return selections.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "SelectionCell", for: indexPath) as! SelectionCell
         
-        cell.gradeImageView.image = UIImage(systemName: selections[indexPath.row].imageName, withConfiguration: UIImage.SymbolConfiguration(pointSize: 22, weight: .bold))
+        cell.gradeImageView.image = UIImage(named: selections[indexPath.row].imageName)
         cell.gradeLabel.text = selections[indexPath.row].grade
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.performSegue(withIdentifier: "ChoiceToSet", sender: self)
+    }
 }
+

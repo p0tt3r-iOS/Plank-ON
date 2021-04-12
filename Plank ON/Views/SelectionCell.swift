@@ -15,15 +15,8 @@ class SelectionCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        backView.layer.cornerRadius = backView.frame.height / 10
         
+        backView.layer.cornerRadius = backView.frame.height / 10
+        gradeImageView.layer.cornerRadius = backView.frame.height / 10
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
