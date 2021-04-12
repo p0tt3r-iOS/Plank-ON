@@ -29,6 +29,20 @@ class ChoiceViewController: UIViewController {
         tableView.register(UINib(nibName: "ChoiceCell", bundle: nil), forCellReuseIdentifier: "ChoiceCell")
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        title = "New Plank"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        title = ""
+        
+        if self.isMovingFromParent {
+            //
+        }
+    }
 }
 
 // MARK: - UITableView DataSource, Delegate

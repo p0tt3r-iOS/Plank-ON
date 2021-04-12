@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "나의 플랭크"
+        title = "My Plank"
     }
     
     override func viewWillDisappear(_ animated: Bool) {

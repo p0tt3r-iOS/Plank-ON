@@ -15,6 +15,7 @@ class PlanCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
     }
 
 }

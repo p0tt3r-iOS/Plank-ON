@@ -24,6 +24,8 @@ struct Plan {
         180, 180, 190, 200, 210, 210, 220],
     ]
     
+    var isPlankOn: Bool = false
+    
     var grade: String? {
         didSet {
             if grade == "초급" {
@@ -33,7 +35,7 @@ struct Plan {
             }
         }
     }
-    
+    var timeForAlarm: Date?
     var secForDays: [Int]?
     
 }
