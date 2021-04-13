@@ -53,7 +53,7 @@ extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChoiceCell", for: indexPath) as! ChoiceCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ChoiceCell", for: indexPath) as! ChoiceTableViewCell
         
         cell.gradeImageView.image = UIImage(named: choices[indexPath.row].imageName)
         cell.gradeLabel.text = choices[indexPath.row].grade
@@ -64,7 +64,7 @@ extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let cell = tableView.cellForRow(at: indexPath) as! ChoiceCell
+        let cell = tableView.cellForRow(at: indexPath) as! ChoiceTableViewCell
         Plan.shared.grade = cell.gradeLabel.text
         
         self.performSegue(withIdentifier: "ChoiceToSet", sender: self)

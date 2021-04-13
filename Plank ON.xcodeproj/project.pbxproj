@@ -21,8 +21,8 @@
 		BCAFFBE825F9F86C005B52E1 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */; };
 		BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */; };
 		BCAFFBF525FA016C005B52E1 /* Choice.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF425FA016C005B52E1 /* Choice.swift */; };
-		BCAFFBF925FA029A005B52E1 /* ChoiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF725FA029A005B52E1 /* ChoiceCell.swift */; };
-		BCAFFBFA25FA029A005B52E1 /* ChoiceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBF825FA029A005B52E1 /* ChoiceCell.xib */; };
+		BCAFFBF925FA029A005B52E1 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBF725FA029A005B52E1 /* ChoiceTableViewCell.swift */; };
+		BCAFFBFA25FA029A005B52E1 /* ChoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCAFFBF825FA029A005B52E1 /* ChoiceTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 		BCAFFBE725F9F86C005B52E1 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		BCAFFBEA25F9F8F1005B52E1 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		BCAFFBF425FA016C005B52E1 /* Choice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Choice.swift; sourceTree = "<group>"; };
-		BCAFFBF725FA029A005B52E1 /* ChoiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCell.swift; sourceTree = "<group>"; };
-		BCAFFBF825FA029A005B52E1 /* ChoiceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceCell.xib; sourceTree = "<group>"; };
+		BCAFFBF725FA029A005B52E1 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
+		BCAFFBF825FA029A005B52E1 /* ChoiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoiceTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,8 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				BCAFFBD125F9E97F005B52E1 /* Main.storyboard */,
-				BCAFFBF725FA029A005B52E1 /* ChoiceCell.swift */,
-				BCAFFBF825FA029A005B52E1 /* ChoiceCell.xib */,
+				BCAFFBF725FA029A005B52E1 /* ChoiceTableViewCell.swift */,
+				BCAFFBF825FA029A005B52E1 /* ChoiceTableViewCell.xib */,
 				BC40D67A26242D1B006FCC7F /* PlanCollectionViewCell.swift */,
 				BC40D67B26242D1B006FCC7F /* PlanCollectionViewCell.xib */,
 			);
@@ -186,7 +186,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCAFFBFA25FA029A005B52E1 /* ChoiceCell.xib in Resources */,
+				BCAFFBFA25FA029A005B52E1 /* ChoiceTableViewCell.xib in Resources */,
 				BCAFFBD825F9E981005B52E1 /* LaunchScreen.storyboard in Resources */,
 				BCAFFBD525F9E981005B52E1 /* Assets.xcassets in Resources */,
 				BCAFFBD325F9E97F005B52E1 /* Main.storyboard in Resources */,
@@ -207,7 +207,7 @@
 				BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */,
 				BC95F6C6262442F200D90682 /* Plan.swift in Sources */,
 				BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */,
-				BCAFFBF925FA029A005B52E1 /* ChoiceCell.swift in Sources */,
+				BCAFFBF925FA029A005B52E1 /* ChoiceTableViewCell.swift in Sources */,
 				BCA67760262585600001A650 /* Extension.swift in Sources */,
 				BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */,
 				BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */,

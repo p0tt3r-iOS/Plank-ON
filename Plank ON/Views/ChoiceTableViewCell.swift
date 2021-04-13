@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChoiceCell: UITableViewCell {
+class ChoiceTableViewCell: UITableViewCell {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var gradeImageView: UIImageView!

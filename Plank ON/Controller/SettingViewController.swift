@@ -14,7 +14,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var alarmDatePicker: UIDatePicker!
     @IBOutlet weak var alarmSwitch: UISwitch!
     @IBOutlet weak var saveButton: UIButton!
-
+    
     // MARK: Property
     let center = UNUserNotificationCenter.current()
     
@@ -77,7 +77,7 @@ class SettingViewController: UIViewController {
         // Configure Notification Content
         let content = UNMutableNotificationContent()
         content.title = "Let's Plank On!"
-        content.body = "플랭크 할 시간입니다."
+        content.body = "플랭크 할 시간입니다!"
         
         // Set Notification Time
         var dateComponents = DateComponents()
@@ -121,7 +121,14 @@ extension SettingViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as! PlanCollectionViewCell
         
-        cell.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 12).isActive = true
+        // 4s, SE, 8은 일주일씩 표현이 안돼서 기기별로 셀 크기를 바꿈
+        if collectionView.frame.width < 300 { // 4s
+            cell.widthAnchor.constraint(equalToConstant: collectionView.frame.width / 11).isActive = true
+        } else if collectionView.frame.width < 350 { // SE, 8
+            cell.widthAnchor.constraint(equalToConstant: collectionView.frame.width / 10.5).isActive = true
+        } else {
+            cell.widthAnchor.constraint(equalToConstant: collectionView.frame.width / 10).isActive = true
+        }
         
         cell.dayLabel.text = String(days[indexPath.row])
         cell.secTextField.isHidden = true
