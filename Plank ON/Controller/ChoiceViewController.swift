@@ -27,7 +27,6 @@ class ChoiceViewController: UIViewController {
         tableView.reloadData()
         
         tableView.register(UINib(nibName: "ChoiceCell", bundle: nil), forCellReuseIdentifier: "ChoiceCell")
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
