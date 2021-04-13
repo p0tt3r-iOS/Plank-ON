@@ -10,6 +10,7 @@
 		BC40D67C26242D1B006FCC7F /* PlanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC40D67A26242D1B006FCC7F /* PlanCollectionViewCell.swift */; };
 		BC40D67D26242D1B006FCC7F /* PlanCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC40D67B26242D1B006FCC7F /* PlanCollectionViewCell.xib */; };
 		BC95F6C6262442F200D90682 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F6C5262442F200D90682 /* Plan.swift */; };
+		BCA67760262585600001A650 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6775F262585600001A650 /* Extension.swift */; };
 		BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */; };
 		BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */; };
 		BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCF25F9E97F005B52E1 /* MainViewController.swift */; };
@@ -28,6 +29,7 @@
 		BC40D67A26242D1B006FCC7F /* PlanCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanCollectionViewCell.swift; sourceTree = "<group>"; };
 		BC40D67B26242D1B006FCC7F /* PlanCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlanCollectionViewCell.xib; sourceTree = "<group>"; };
 		BC95F6C5262442F200D90682 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		BCA6775F262585600001A650 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BCAFFBC825F9E97F005B52E1 /* Plank ON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plank ON.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCA6775E262585510001A650 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				BCA6775F262585600001A650 /* Extension.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		BCAFFBBF25F9E97F005B52E1 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 				BCAFFBF225F9FEF7005B52E1 /* Models */,
 				BCAFFBEE25F9F903005B52E1 /* Controller */,
 				BCAFFBF125F9FEE3005B52E1 /* Views */,
+				BCA6775E262585510001A650 /* Utility */,
 				BCAFFBD425F9E981005B52E1 /* Assets.xcassets */,
 				BCAFFBD625F9E981005B52E1 /* LaunchScreen.storyboard */,
 				BCAFFBD925F9E981005B52E1 /* Info.plist */,
@@ -197,6 +208,7 @@
 				BC95F6C6262442F200D90682 /* Plan.swift in Sources */,
 				BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */,
 				BCAFFBF925FA029A005B52E1 /* ChoiceCell.swift in Sources */,
+				BCA67760262585600001A650 /* Extension.swift in Sources */,
 				BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */,
 				BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */,
 				BCAFFBE525F9F563005B52E1 /* ChoiceViewController.swift in Sources */,

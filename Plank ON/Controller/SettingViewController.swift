@@ -16,7 +16,7 @@ class SettingViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
 
     // MARK: Property
-    let userNotificationCenter = UNUserNotificationCenter.current()
+    let center = UNUserNotificationCenter.current()
     
     let days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
     
@@ -31,27 +31,28 @@ class SettingViewController: UIViewController {
         collectionView.register(UINib(nibName: "PlanCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dayCell")
         
         setUI()
-        
-        requestAuthNotification()
-        requestSendNotification(seconds: 3)
     }
     
     // MARK: IBAction
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if alarmSwitch.isOn {
             Plan.shared.timeForAlarm = alarmDatePicker.date
+            requestSendNotification(time: alarmDatePicker.date)
         } else {
             Plan.shared.timeForAlarm = nil
         }
         
         Plan.shared.isPlankOn = true
-        
+
         self.navigationController?.popToRootViewController(animated: true)
     }
     
     @IBAction func alarmSwitchPressed(_ sender: UISwitch) {
         if alarmSwitch.isOn {
-            
+            requestAuthNotification()
+            alarmDatePicker.isEnabled = true
+        } else {
+            alarmDatePicker.isEnabled = false
         }
     }
     
@@ -65,27 +66,46 @@ class SettingViewController: UIViewController {
     
     func requestAuthNotification() {
         let notificationAuthOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
-        userNotificationCenter.requestAuthorization(options: notificationAuthOptions) { success, error in
+        center.requestAuthorization(options: notificationAuthOptions) { success, error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
             }
         }
     }
     
-    func requestSendNotification(seconds: Double) {
-        let notificationContent = UNMutableNotificationContent()
-        notificationContent.title = "알림 제목"
-        notificationContent.body = "알림 내용"
-        notificationContent.userInfo = ["targetScene" : "splash"]
+    func requestSendNotification(time: Date) {
+        // Configure Notification Content
+        let content = UNMutableNotificationContent()
+        content.title = "Let's Plank On!"
+        content.body = "플랭크 할 시간입니다."
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString,
-                                            content: notificationContent,
+        // Set Notification Time
+        var dateComponents = DateComponents()
+        dateComponents.calendar = Calendar.current
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HHmm"
+        
+        let hourString = dateFormatter.string(from: time).substring(toIndex: 2)
+        let minuteString = dateFormatter.string(from: time).substring(fromIndex: 2)
+        
+        guard let hour = Int(hourString), let minute = Int(minuteString) else { return }
+        
+        dateComponents.hour = hour
+        dateComponents.minute = minute
+        
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        // Create the request
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString,
+                                            content: content,
                                             trigger: trigger)
         
-        userNotificationCenter.add(request) { error in
+        // Schedule the request with the system.
+        center.add(request) { error in
             if let error = error {
-            print("Error: \(error.localizedDescription)")
+                print(error.localizedDescription)
             }
         }
     }
