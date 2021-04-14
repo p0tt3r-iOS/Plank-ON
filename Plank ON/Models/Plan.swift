@@ -38,4 +38,6 @@ struct Plan {
     var timeForAlarm: Date?
     var secForDays: [Int]?
     
+    var day = 0
+    
 }

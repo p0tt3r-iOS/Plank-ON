@@ -11,7 +11,8 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var turnOnButton: UIButton!
+    @IBOutlet weak var gradeLabel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,6 @@ class MainViewController: UIViewController {
         collectionView.delegate = self
         
         addBottomBorder(width: 0.5)
-        turnOnButton.layer.cornerRadius = turnOnButton.frame.width / 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,8 +73,6 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         return cell
     }
-    
-    
 }
 
 

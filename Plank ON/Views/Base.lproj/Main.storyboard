@@ -115,8 +115,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Ml8-zW-7ab" id="Wou-Fw-oN7"/>
+                        <outlet property="gradeLabel" destination="EVP-A7-fQh" id="Oyk-OE-oUL"/>
+                        <outlet property="progressLabel" destination="vHc-DR-95H" id="kFA-J5-0os"/>
                         <outlet property="progressView" destination="Q1T-0Y-m2W" id="0kj-t0-j6j"/>
-                        <outlet property="turnOnButton" destination="9fM-k8-JuY" id="u3p-Dt-fgm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -130,13 +131,34 @@
                     <view key="view" contentMode="scaleToFill" id="Y8S-nj-LGe">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJi-Lb-X3T">
+                                <rect key="frame" x="143" y="85" width="104" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c3-d6-Vr6">
+                                <rect key="frame" x="143" y="226.33333333333326" width="103" height="103"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="power" catalog="system"/>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="l7h-4c-dJe" eventType="touchUpInside" id="oLc-7d-3ym"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lbr-4T-3K2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="0c3-d6-Vr6" id="ait-OE-53j"/>
+                        <outlet property="timerLabel" destination="dJi-Lb-X3T" id="2aX-jr-my2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qIw-uS-qdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="770"/>
+            <point key="canvasLocation" x="501.53846153846155" y="769.9052132701421"/>
         </scene>
         <!--New Plank-->
         <scene sceneID="K4J-Ln-Vbp">
