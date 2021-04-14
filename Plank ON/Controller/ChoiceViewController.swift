@@ -26,7 +26,7 @@ class ChoiceViewController: UIViewController {
         tableView.delegate = self
         tableView.reloadData()
         
-        tableView.register(UINib(nibName: "ChoiceCell", bundle: nil), forCellReuseIdentifier: "ChoiceCell")
+        tableView.register(UINib(nibName: "ChoiceTableViewCell", bundle: nil), forCellReuseIdentifier: ChoiceTableViewCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +53,7 @@ extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChoiceCell", for: indexPath) as! ChoiceTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: ChoiceTableViewCell.identifier, for: indexPath) as! ChoiceTableViewCell
         
         cell.gradeImageView.image = UIImage(named: choices[indexPath.row].imageName)
         cell.gradeLabel.text = choices[indexPath.row].grade

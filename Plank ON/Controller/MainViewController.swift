@@ -9,13 +9,18 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var turnOnButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        tableView.reloadData()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        addBottomBorder(width: 0.5)
+        turnOnButton.layer.cornerRadius = turnOnButton.frame.width / 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,23 +32,53 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         title = ""
     }
+    
+    private func addBottomBorder(width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = UIColor.systemGray4.cgColor
+        border.frame = CGRect(x: 0,
+                              y: progressView.frame.size.height - width,
+                              width: progressView.frame.size.width,
+                              height: width)
+        progressView.layer.addSublayer(border)
+    }
 }
 
-extension MainViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if Plan.shared.isPlankOn {
-            return 1
-        } else {
-            return 0
-        }
+// MARK: - UICollectionViewDataSource & Delegate Method
+
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 28
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StatusCellIdentifier", for: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCollectionViewCell", for: indexPath)
+        
+        let cellWidth = (collectionView.frame.width - 24) / 7
+        let cellHeight = cellWidth
+        
+        let cellWidthConstraint = cell.widthAnchor.constraint(equalToConstant: cellWidth)
+        let cellHeightConstraint = cell.heightAnchor.constraint(equalToConstant: cellHeight)
+        
+        cellWidthConstraint.priority = .defaultHigh
+        cellHeightConstraint.priority = .defaultHigh
+        
+        NSLayoutConstraint.activate([
+            cellWidthConstraint,
+            cellHeightConstraint
+        ])
+        
+        cell.backgroundColor = UIColor.systemGreen
+        cell.layer.cornerRadius = 8
         
         return cell
     }
+    
+    
 }
+
+
+
 
 
 

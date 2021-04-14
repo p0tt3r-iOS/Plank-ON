@@ -11,6 +11,7 @@ class SettingViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var alarmView: UIView!
+    @IBOutlet weak var alarmLabel: UILabel!
     @IBOutlet weak var alarmDatePicker: UIDatePicker!
     @IBOutlet weak var alarmSwitch: UISwitch!
     @IBOutlet weak var saveButton: UIButton!
@@ -18,7 +19,14 @@ class SettingViewController: UIViewController {
     // MARK: Property
     let center = UNUserNotificationCenter.current()
     
-    let days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+    let days: [Int] = {
+        var days: [Int] = []
+        for i in 1...28 {
+            days.append(i)
+        }
+        
+        return days
+    }()
     
     // MARK: Life Cycles
     override func viewDidLoad() {
@@ -28,7 +36,7 @@ class SettingViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "PlanCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "dayCell")
+        collectionView.register(UINib(nibName: "PlanCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: PlanCollectionViewCell.identifier)
         
         setUI()
     }
@@ -51,8 +59,10 @@ class SettingViewController: UIViewController {
         if alarmSwitch.isOn {
             requestAuthNotification()
             alarmDatePicker.isEnabled = true
+            alarmLabel.textColor = .label
         } else {
             alarmDatePicker.isEnabled = false
+            alarmLabel.textColor = .secondaryLabel
         }
     }
     
@@ -119,16 +129,12 @@ extension SettingViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "dayCell", for: indexPath) as! PlanCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanCollectionViewCell.identifier, for: indexPath) as! PlanCollectionViewCell
         
-        // 4s, SE, 8은 일주일씩 표현이 안돼서 기기별로 셀 크기를 바꿈
-        if collectionView.frame.width < 300 { // 4s
-            cell.widthAnchor.constraint(equalToConstant: collectionView.frame.width / 11).isActive = true
-        } else if collectionView.frame.width < 350 { // SE, 8
-            cell.widthAnchor.constraint(equalToConstant: collectionView.frame.width / 10.5).isActive = true
-        } else {
-            cell.widthAnchor.constraint(equalToConstant: collectionView.frame.width / 10).isActive = true
-        }
+        let cellWidthConstraint = cell.widthAnchor.constraint(equalToConstant: (collectionView.frame.width - 108) / 7)
+        
+        cellWidthConstraint.priority = .defaultHigh
+        cellWidthConstraint.isActive = true
         
         cell.dayLabel.text = String(days[indexPath.row])
         cell.secTextField.isHidden = true
