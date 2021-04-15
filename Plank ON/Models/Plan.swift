@@ -5,39 +5,73 @@
 //  Created by 하동훈 on 2021/04/12.
 //
 
-import Foundation
+import UIKit
+import CoreData
+
 
 struct Plan {
     static var shared = Plan()
     private init() {}
     
-    private var planForGrade: [[Int]] = [
-        [15, 20, 25, 30, 30, 35, 40,
-         45, 50, 50, 55, 60, 60, 65,
-         70, 75, 75, 80, 85, 90, 90,
-         95, 100, 105, 110, 110, 120, 120],
-        [30, 40, 50, 60, 60, 70, 80,
-        90, 90, 100, 110, 120, 120, 130,
-        140, 150, 160, 160, 170, 180, 190,
-        190, 200, 210, 220, 220, 230, 240],
-        [120, 130, 140, 150, 150, 160, 170,
-        180, 180, 190, 200, 210, 210, 220],
-    ]
+    var isSet: Bool = false
     
-    var isPlankOn: Bool = false
-    
-    var grade: String? {
+    var choice: Choice? {
         didSet {
-            if grade == "초급" {
-                secForDays = planForGrade[0]
+            if choice?.grade == "초급" {
+                plan = Constant.shared.planForGrade[0]
             } else {
-                secForDays = planForGrade[1]
+                plan = Constant.shared.planForGrade[1]
             }
         }
     }
-    var timeForAlarm: Date?
-    var secForDays: [Int]?
     
-    var day = 0
+    var grade: String?
+    var plan: [Int]?
     
+    var day: Int16 = 0
+    
+    func updatePlan() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+
+        let entity = NSEntityDescription.entity(forEntityName: Constant.shared.planData, in: context)
+
+        if let entity = entity {
+            let planData = NSManagedObject(entity: entity, insertInto: context)
+            planData.setValue(choice?.grade, forKey: "grade")
+            planData.setValue(Int16(day), forKey: "day")
+            planData.setValue(isSet, forKey: "isSet")
+            
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchPlan() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        do {
+            let planData = try context.fetch(PlanData.fetchRequest()) as! [PlanData]
+            planData.forEach {
+                print($0.grade)
+            }
+            if planData.count > 0 {
+                if planData[0].isSet {
+                    Plan.shared.isSet = planData[0].isSet
+                    Plan.shared.day = planData[0].day
+                    Plan.shared.choice?.grade = planData[0].grade!
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
+
+
+
+

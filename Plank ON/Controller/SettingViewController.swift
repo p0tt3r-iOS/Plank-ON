@@ -32,7 +32,7 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = Plan.shared.grade
+        title = Plan.shared.choice?.grade
 
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -44,13 +44,10 @@ class SettingViewController: UIViewController {
     // MARK: IBAction
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         if alarmSwitch.isOn {
-            Plan.shared.timeForAlarm = alarmDatePicker.date
             requestSendNotification(time: alarmDatePicker.date)
-        } else {
-            Plan.shared.timeForAlarm = nil
         }
         
-        Plan.shared.isPlankOn = true
+        Plan.shared.isSet = true
 
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -138,7 +135,7 @@ extension SettingViewController: UICollectionViewDataSource, UICollectionViewDel
         
         cell.dayLabel.text = String(days[indexPath.row])
         cell.secTextField.isHidden = true
-        cell.secLabel.text = String((Plan.shared.secForDays?[indexPath.row])!)
+        cell.secLabel.text = String((Plan.shared.plan?[indexPath.row])!)
         
         return cell
     }

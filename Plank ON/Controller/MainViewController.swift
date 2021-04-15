@@ -7,12 +7,17 @@
 
 import UIKit
 
+import CoreData
+
 class MainViewController: UIViewController {
 
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var gradeLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var goToTimerButton: UIButton!
+    
+    var progress = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,9 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = "My Plank"
+        checkIsPlanSet()
+        
+        collectionView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,6 +50,21 @@ class MainViewController: UIViewController {
                               height: width)
         progressView.layer.addSublayer(border)
     }
+    
+    func checkIsPlanSet() {
+        if Plan.shared.isSet {
+            goToTimerButton.isEnabled = true
+            gradeLabel.text = Plan.shared.choice?.grade
+            
+            progress = Double(Plan.shared.day) / Double(28)
+            
+            progressLabel.text = "\(String(format: "%.1f", progress * 100))%"
+        } else {
+            goToTimerButton.isEnabled = false
+        }
+    }
+    
+    
 }
 
 // MARK: - UICollectionViewDataSource & Delegate Method
@@ -68,7 +91,12 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
             cellHeightConstraint
         ])
         
-        cell.backgroundColor = UIColor.systemGreen
+        if indexPath.item < Plan.shared.day {
+            cell.backgroundColor = UIColor.systemGreen
+        } else {
+            cell.backgroundColor = UIColor.systemGray
+        }
+        
         cell.layer.cornerRadius = 8
         
         return cell

@@ -9,8 +9,5 @@ import Foundation
 
 struct Choice {
     let imageName: String
-    let grade: String
+    var grade: String
 }
-
-
-

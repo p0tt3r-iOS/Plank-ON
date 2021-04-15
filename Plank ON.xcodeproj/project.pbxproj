@@ -12,6 +12,8 @@
 		BC95F6C6262442F200D90682 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC95F6C5262442F200D90682 /* Plan.swift */; };
 		BCA67760262585600001A650 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6775F262585600001A650 /* Extension.swift */; };
 		BCA677672625E6020001A650 /* UIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA677662625E6020001A650 /* UIExtension.swift */; };
+		BCA6BA0926282CB4005E22C0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCA6BA0726282CB4005E22C0 /* DataModel.xcdatamodeld */; };
+		BCA6BA0E26283087005E22C0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA6BA0D26283087005E22C0 /* Constant.swift */; };
 		BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */; };
 		BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */; };
 		BCAFFBD025F9E97F005B52E1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAFFBCF25F9E97F005B52E1 /* MainViewController.swift */; };
@@ -32,6 +34,8 @@
 		BC95F6C5262442F200D90682 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		BCA6775F262585600001A650 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		BCA677662625E6020001A650 /* UIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtension.swift; sourceTree = "<group>"; };
+		BCA6BA0826282CB4005E22C0 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		BCA6BA0D26283087005E22C0 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		BCAFFBC825F9E97F005B52E1 /* Plank ON.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plank ON.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCAFFBCB25F9E97F005B52E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCAFFBCD25F9E97F005B52E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,8 +130,10 @@
 		BCAFFBF225F9FEF7005B52E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BCA6BA0D26283087005E22C0 /* Constant.swift */,
 				BCAFFBF425FA016C005B52E1 /* Choice.swift */,
 				BC95F6C5262442F200D90682 /* Plan.swift */,
+				BCA6BA0726282CB4005E22C0 /* DataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,9 +217,11 @@
 				BC95F6C6262442F200D90682 /* Plan.swift in Sources */,
 				BCAFFBCC25F9E97F005B52E1 /* AppDelegate.swift in Sources */,
 				BCAFFBF925FA029A005B52E1 /* ChoiceTableViewCell.swift in Sources */,
+				BCA6BA0E26283087005E22C0 /* Constant.swift in Sources */,
 				BCA677672625E6020001A650 /* UIExtension.swift in Sources */,
 				BCA67760262585600001A650 /* Extension.swift in Sources */,
 				BCAFFBCE25F9E97F005B52E1 /* SceneDelegate.swift in Sources */,
+				BCA6BA0926282CB4005E22C0 /* DataModel.xcdatamodeld in Sources */,
 				BCAFFBEB25F9F8F1005B52E1 /* TimerViewController.swift in Sources */,
 				BCAFFBE525F9F563005B52E1 /* ChoiceViewController.swift in Sources */,
 			);
@@ -419,6 +427,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BCA6BA0726282CB4005E22C0 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCA6BA0826282CB4005E22C0 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = BCA6BA0826282CB4005E22C0 /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = ../../DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BCAFFBC025F9E97F005B52E1 /* Project object */;
 }

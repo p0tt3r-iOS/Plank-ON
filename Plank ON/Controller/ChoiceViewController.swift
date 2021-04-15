@@ -63,9 +63,7 @@ extension ChoiceViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let cell = tableView.cellForRow(at: indexPath) as! ChoiceTableViewCell
-        Plan.shared.grade = cell.gradeLabel.text
+        Plan.shared.choice = choices[indexPath.row]
         
         self.performSegue(withIdentifier: "ChoiceToSet", sender: self)
     }

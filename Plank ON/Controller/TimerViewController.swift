@@ -12,9 +12,18 @@ class TimerViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     let day = Plan.shared.day
-    var sec = Plan.shared.secForDays![Plan.shared.day]
+    var sec = Plan.shared.plan![Int(Plan.shared.day)]
     var timerString = "00:00"
     var timer = Timer()
+    var isTimerOn: Bool = false {
+        didSet {
+            if isTimerOn {
+                startButton.isEnabled = false
+            } else {
+                startButton.isEnabled = true
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +32,27 @@ class TimerViewController: UIViewController {
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-        
+        if !isTimerOn {
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        }
+        isTimerOn = true
     }
     
     func setUI() {
-        timerLabel.text = "00:\(String(sec))"
+        setTimerLabel()
     }
     
-    @objc func updateTimerLabel() {
+    func setTimerLabel() {
         if sec >= 60 {
-            timerString = "\(sec / 60):\(sec % 60)"
+            if sec >= 600 {
+                timerString = "\(sec / 60):\(sec % 60)"
+            } else {
+                if sec % 60 < 10 {
+                    timerString = "0\(sec / 60):0\(sec % 60)"
+                } else {
+                    timerString = "0\(sec / 60):\(sec % 60)"
+                }
+            }
         } else if sec >= 10 {
             timerString = "00:\(sec)"
         } else {
@@ -41,13 +60,17 @@ class TimerViewController: UIViewController {
         }
         
         timerLabel.text = timerString
+    }
+    
+    @objc func updateTimerLabel() {
+        setTimerLabel()
         
         if sec == 0 {
             timer.invalidate()
+            isTimerOn = false
+            Plan.shared.day += 1
         }
         
         sec -= 1
     }
-    
-
 }
