@@ -33,20 +33,32 @@ struct Plan {
     func updatePlan() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-
         let entity = NSEntityDescription.entity(forEntityName: Constant.shared.planData, in: context)
-
-        if let entity = entity {
-            let planData = NSManagedObject(entity: entity, insertInto: context)
-            planData.setValue(choice?.grade, forKey: "grade")
-            planData.setValue(Int16(day), forKey: "day")
-            planData.setValue(isSet, forKey: "isSet")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "PlanData")
+        
+        do {
+            let results = try context.fetch(fetchRequest) as? [NSManagedObject]
+            if results?.count != 0 {
+                results?[0].setValue(Plan.shared.choice!.grade, forKey: "grade")
+                results?[0].setValue(Int16(Plan.shared.day), forKey: "day")
+                results?[0].setValue(Plan.shared.isSet, forKey: "isSet")
+            } else {
+                if let entity = entity {
+                    let planData = NSManagedObject(entity: entity, insertInto: context)
+                    planData.setValue(Plan.shared.choice!.grade, forKey: "grade")
+                    planData.setValue(Int16(Plan.shared.day), forKey: "day")
+                    planData.setValue(Plan.shared.isSet, forKey: "isSet")
+                }
+            }
             
             do {
                 try context.save()
             } catch {
                 print(error.localizedDescription)
             }
+            
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
@@ -56,14 +68,24 @@ struct Plan {
         
         do {
             let planData = try context.fetch(PlanData.fetchRequest()) as! [PlanData]
-            planData.forEach {
-                print($0.grade)
-            }
-            if planData.count > 0 {
+            if planData.count != 0 {
                 if planData[0].isSet {
                     Plan.shared.isSet = planData[0].isSet
                     Plan.shared.day = planData[0].day
-                    Plan.shared.choice?.grade = planData[0].grade!
+                    
+                    switch planData[0].grade {
+                    case Constant.shared.choices[0].grade:
+                        Plan.shared.choice = Constant.shared.choices[0]
+                    case Constant.shared.choices[1].grade:
+                        Plan.shared.choice = Constant.shared.choices[1]
+                    case Constant.shared.choices[2].grade:
+                        Plan.shared.choice = Constant.shared.choices[1]
+                    case Constant.shared.choices[3].grade:
+                        Plan.shared.choice = Constant.shared.choices[1]
+                    // MARK: Has to fix
+                    default:
+                        Plan.shared.choice = Constant.shared.choices[0]
+                    }
                 }
             }
         } catch {

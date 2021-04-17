@@ -11,12 +11,7 @@ class ChoiceViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    let choices = [
-        Choice(imageName: "Beginner", grade: "초급"),
-        Choice(imageName: "Intermediate", grade: "중급"),
-        Choice(imageName: "Advanced", grade: "상급"),
-        Choice(imageName: "Custom", grade: "커스텀")
-    ]
+    let choices = Constant.shared.choices
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +37,7 @@ class ChoiceViewController: UIViewController {
             //
         }
     }
+    
 }
 
 // MARK: - UITableView DataSource, Delegate

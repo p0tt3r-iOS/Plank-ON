@@ -24,5 +24,10 @@ struct Constant {
         180, 180, 190, 200, 210, 210, 220],
     ]
     
+    let choices: [Choice] = [Choice(imageName: "Beginner", grade: "초급"),
+                            Choice(imageName: "Intermediate", grade: "중급"),
+                            Choice(imageName: "Advanced", grade: "상급"),
+                            Choice(imageName: "Custom", grade: "커스텀")]
+    
     let planData = "PlanData"
 }

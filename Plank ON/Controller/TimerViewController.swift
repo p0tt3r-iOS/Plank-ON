@@ -69,6 +69,7 @@ class TimerViewController: UIViewController {
             timer.invalidate()
             isTimerOn = false
             Plan.shared.day += 1
+            Plan.shared.updatePlan()
         }
         
         sec -= 1

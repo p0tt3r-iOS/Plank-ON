@@ -48,6 +48,7 @@ class SettingViewController: UIViewController {
         }
         
         Plan.shared.isSet = true
+        Plan.shared.updatePlan()
 
         self.navigationController?.popToRootViewController(animated: true)
     }
